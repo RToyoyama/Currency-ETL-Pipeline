@@ -26,3 +26,7 @@ logs/
 airflow.db
 airflow.cfg
 standalone_admin_password.txt
+
+# Conteúdo de logs (mantém a pasta, ignora o conteúdo)
+logs/*
+!logs/.gitkeep
