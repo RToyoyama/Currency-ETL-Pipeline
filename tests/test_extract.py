@@ -10,7 +10,7 @@ def test_validate_dados_validos(valid_raw_data: dict) -> None:
 
 
 def test_validate_dados_invalidos() -> None:
-    data_incompleta = {"USDBRL": {"code": "USD"}}
+    data_incompleta = {'USDBRL': {'code': 'USD'}}
     result = validate_raw_data(data_incompleta)
     assert result is False
 
@@ -26,7 +26,7 @@ def test_fetch_sucesso(mocker, valid_raw_data: dict) -> None:
     mock_response.raise_for_status.return_value = None
 
     mocker.patch(
-        "src.extract.currency_api.requests.get",
+        'src.extract.currency_api.requests.get',
         return_value=mock_response,
     )
 
@@ -36,7 +36,7 @@ def test_fetch_sucesso(mocker, valid_raw_data: dict) -> None:
 
 def test_fetch_timeout(mocker) -> None:
     mocker.patch(
-        "src.extract.currency_api.requests.get",
+        'src.extract.currency_api.requests.get',
         side_effect=requests.Timeout(),
     )
 

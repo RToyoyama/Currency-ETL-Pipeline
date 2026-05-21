@@ -1,4 +1,3 @@
-
 import pandas as pd
 from sqlalchemy.engine import Engine
 
@@ -7,12 +6,12 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-TABLE_NAME = "currency_rates"
+TABLE_NAME = 'currency_rates'
 
 
 def load_currency_data(df: pd.DataFrame, engine: Engine | None = None) -> int:
     if df.empty:
-        logger.warning("DataFrame vazio - nada pra carregar")
+        logger.warning('DataFrame vazio - nada pra carregar')
         return 0
 
     if engine is None:
@@ -25,17 +24,17 @@ def load_currency_data(df: pd.DataFrame, engine: Engine | None = None) -> int:
             rows_inserted = df.to_sql(
                 name=TABLE_NAME,
                 con=conn,
-                if_exists="append",
+                if_exists='append',
                 index=False,
-                method="multi",
+                method='multi',
             )
 
         count = rows_inserted if rows_inserted is not None else len(df)
-        logger.info(f"Carga concluída — {count} registros inseridos")
+        logger.info(f'Carga concluída — {count} registros inseridos')
         return count
 
     except Exception as e:
-        logger.error(f"Erro na carga — rollback executado: {e}")
+        logger.error(f'Erro na carga — rollback executado: {e}')
         raise
 
 
