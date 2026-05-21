@@ -1,6 +1,3 @@
-from http.client import REQUEST_TIMEOUT
-from typing import Required
-from unittest.mock import DEFAULT
 from typing import Final
 
 import requests
