@@ -38,3 +38,15 @@ def load_currency_data(df: pd.DataFrame, engine: Engine | None = None) -> int:
     except Exception as e:
         logger.error(f"Erro na carga — rollback executado: {e}")
         raise
+
+
+def table_exists(engine=None) -> bool:
+    from sqlalchemy import inspect
+
+    if engine is None:
+        engine = get_engine()
+
+    inspector = inspect(engine)
+    exists = TABLE_NAME in inspector.get_table_names()
+    logger.info(f'Tabela "{TABLE_NAME}" existe: {exists}')
+    return exists
