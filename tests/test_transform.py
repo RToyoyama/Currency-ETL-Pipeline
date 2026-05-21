@@ -1,9 +1,7 @@
-from unittest import result
 
 import pandas as pd
 import pytest
 
-from src import transform
 from src.transform.currency_transform import transform_currency_data
 
 

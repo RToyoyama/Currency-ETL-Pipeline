@@ -1,5 +1,4 @@
 import logging
-from string import Formatter
 import sys
 
 

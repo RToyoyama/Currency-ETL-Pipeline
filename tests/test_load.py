@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pandas as pd
 import pytest
-from sqlalchemy import create_engine, engine, text
+from sqlalchemy import create_engine, text
 
 from src.load.postgres_loader import load_currency_data
 
@@ -56,7 +56,7 @@ def test_load_acumulativo(sqlite_engine, sample_dataframe) -> None:
     assert count == 6
 
 
-def test_load_retorna_numero_de_registros(sqlite_engine, sample_dataframe) -> None:
+def test_load_retorna_registros(sqlite_engine, sample_dataframe) -> None:
     result = load_currency_data(sample_dataframe, engine=sqlite_engine)
     assert result == 3
 

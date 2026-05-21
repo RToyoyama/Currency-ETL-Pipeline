@@ -1,9 +1,7 @@
 import os
-from venv import logger
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
-from sqlalchemy import engine
 from sqlalchemy.engine import Engine
 
 from src.utils.logger import get_logger
@@ -45,6 +43,6 @@ def test_connection() -> bool:
             logger.info(f"Conexão OK — resultado: {result.scalar()}")
             return True
 
-    except Exception as e:
+    except Exception:
         logger.error("Falha na conexão: {e}")
         return False

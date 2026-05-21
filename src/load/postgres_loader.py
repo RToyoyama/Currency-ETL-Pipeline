@@ -1,4 +1,3 @@
-from itertools import count
 
 import pandas as pd
 from sqlalchemy.engine import Engine

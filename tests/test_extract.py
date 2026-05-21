@@ -1,5 +1,3 @@
-from unittest import result
-
 import pytest
 import requests
 
@@ -27,7 +25,10 @@ def test_fetch_sucesso(mocker, valid_raw_data: dict) -> None:
     mock_response.json.return_value = valid_raw_data
     mock_response.raise_for_status.return_value = None
 
-    mocker.patch("src.extract.currency_api.requests.get", return_value=mock_response)
+    mocker.patch(
+        "src.extract.currency_api.requests.get",
+        return_value=mock_response,
+    )
 
     result = fetch_currency_data()
     assert result == valid_raw_data

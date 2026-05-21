@@ -1,8 +1,6 @@
-from email.policy import default
 import logging
 from datetime import datetime, timedelta
 
-from numpy import record
 import pandas as pd
 from airflow import DAG
 from airflow.operators.python import PythonOperator

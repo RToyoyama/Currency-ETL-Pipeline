@@ -1,8 +1,6 @@
 from datetime import datetime
-from locale import currency
 from typing import Any
 
-from numpy import record
 import pandas as pd
 
 from src.utils.logger import get_logger

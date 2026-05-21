@@ -38,10 +38,17 @@ def fetch_currency_data(pairs: str = DEFAULT_PAIRS) -> dict:
 
 def validate_raw_data(data: dict) -> bool:
     if not data:
-        logger.warning(f"Dados Vazioa")
+        logger.warning("Dados Vazioa")
         return False
 
-    required_fields = {"bid", "ask", "timestamp", "create_date", "code", "codein"}
+    required_fields = {
+        "bid",
+        "ask",
+        "timestamp",
+        "create_date",
+        "code",
+        "codein",
+    }
 
     for pair_key, pair_data in data.items():
         missing = required_fields - set(pair_data.keys())
