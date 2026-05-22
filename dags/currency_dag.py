@@ -50,7 +50,10 @@ def transform(**kwargs) -> None:
 
 def load(**kwargs) -> None:
     ti = kwargs["ti"]
-    records = ti.xcom_pull(task_ids="transform_task", key="transformed_records")
+    records = ti.xcom_pull(
+        task_ids="transform_task",
+        key="transformed_records",
+    )
 
     if not records:
         raise ValueError("Nenhum registro encontrado no XCom")
