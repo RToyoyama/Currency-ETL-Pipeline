@@ -148,6 +148,17 @@ cd Currency-ETL-Pipeline
 cp .env.example .env
 ```
 
+Abra o arquivo `.env` e preencha as variáveis:
+
+```env
+POSTGRES_USER=airflow
+POSTGRES_PASSWORD=airflow
+POSTGRES_DB=airflow
+AIRFLOW_ADMIN_USER=admin
+AIRFLOW_ADMIN_PASSWORD=admin
+AIRFLOW_SECRET_KEY=qualquer-chave-secreta
+```
+
 ### 3. Suba os containers
 
 ```bash
